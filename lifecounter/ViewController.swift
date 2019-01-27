@@ -11,13 +11,17 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     let users = ["1", "2"]
     let score = ["20", "10"]
-    let image = [UIImage(named: "personicon"), UIImage(named: "personicon")]
+    let image = [UIImage(named:"personicon"), UIImage(named: "personicon")   ]
     
     @IBOutlet weak var roundedRecButton: UIButton!
     
     @IBOutlet weak var userCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let width = view.frame.size.width-40
+        let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: 80)
+        
         roundedRecButton.layer.cornerRadius = 10
         userCollection.layer.masksToBounds = false
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,7 +35,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.userID.text = users[indexPath.row]
-        cell.userProfile.image = image[indexPath.row]
+        cell.userProfile.image = image[indexPath.row]   
         cell.score.text = score[indexPath.row]
         
         cell.layer.cornerRadius = 20

@@ -50,12 +50,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jvv-Q3-A7l" userLabel="UserProfile">
-                                                    <rect key="frame" x="20" y="15" width="50" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Jvv-Q3-A7l" secondAttribute="height" multiplier="35:35" id="qqH-oC-mcE"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z18-P1-v5p">
                                                     <rect key="frame" x="144.66666666666666" y="27" width="85" height="26"/>
                                                     <subviews>
@@ -87,6 +81,12 @@
                                                     <color key="textColor" red="1" green="0.52156862745098043" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="personIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Jvv-Q3-A7l" userLabel="UserProfile">
+                                                    <rect key="frame" x="20" y="11" width="59" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Jvv-Q3-A7l" secondAttribute="height" multiplier="35:35" id="qqH-oC-mcE"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,7 +160,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.33333333333334" y="132.88043478260872"/>
+            <point key="canvasLocation" x="133.33333333333334" y="132.58928571428572"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="personIcon" width="179" height="179"/>
+    </resources>
 </document>
