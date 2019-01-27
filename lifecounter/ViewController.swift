@@ -21,7 +21,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let width = view.frame.size.width-40
         let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: 80)
-        userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2 
+        userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
+        userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height + 10
+//        userCollection.top = roundedRecButton.bottom + 10
         roundedRecButton.layer.cornerRadius = 10
         userCollection.layer.masksToBounds = false
         // Do any additional setup after loading the view, typically from a nib.
