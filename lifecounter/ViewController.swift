@@ -15,10 +15,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBOutlet weak var roundedRecButton: UIButton!
     
+    @IBOutlet weak var userCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         roundedRecButton.layer.cornerRadius = 10
-
+        userCollection.layer.masksToBounds = false
         // Do any additional setup after loading the view, typically from a nib.
 
     }
@@ -40,9 +41,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 //        cell.layer.borderWidth = 1.0
 //        cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 4)
+        cell.layer.shadowOffset = CGSize(width: 2, height: 4)
         cell.layer.shadowOpacity = 0.2
-        cell.layer.shadowRadius = 20
+        cell.layer.shadowRadius = 10
         return cell
     }
     
