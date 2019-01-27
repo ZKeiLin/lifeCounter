@@ -13,8 +13,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let score = ["20", "10"]
     let image = [UIImage(named:"personicon"), UIImage(named: "personicon")   ]
     
+    @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var roundedRecButton: UIButton!
     
+    @IBOutlet weak var minus: UIButton!
+    @IBOutlet weak var minus5: UIButton!
+    @IBOutlet weak var plus5: UIButton!
+    @IBOutlet weak var buttonSlackView: UIStackView!
     @IBOutlet weak var userCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +28,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         layout.itemSize = CGSize(width: width, height: 80)
         userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
         userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height + 10
-//        userCollection.top = roundedRecButton.bottom + 10
-        roundedRecButton.layer.cornerRadius = 10
+        roundedRecButton.layer.cornerRadius = 25
         userCollection.layer.masksToBounds = false
-        // Do any additional setup after loading the view, typically from a nib.
-
+        plusButton.layer.cornerRadius = 30
+        plus5.layer.cornerRadius = 30
+        minus.layer.cornerRadius = 30
+        minus5.layer.cornerRadius = 30
+        buttonSlackView.frame.origin.x = view.frame.width / 2 - buttonSlackView.frame.width/2
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,8 +52,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.layer.masksToBounds = false
         cell.layer.shadowColor = UIColor.black.cgColor
 
-//        cell.layer.borderWidth = 1.0
-//        cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOffset = CGSize(width: 2, height: 4)
         cell.layer.shadowOpacity = 0.2
