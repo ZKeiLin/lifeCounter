@@ -8,13 +8,43 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    let users = ["1", "2"]
+    let score = ["20", "10"]
+    let image = [UIImage(named: "personicon"), UIImage(named: "personicon")]
+    
+    @IBOutlet weak var roundedRecButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        roundedRecButton.layer.cornerRadius = 10
+
         // Do any additional setup after loading the view, typically from a nib.
+
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        cell.userID.text = users[indexPath.row]
+        cell.userProfile.image = image[indexPath.row]
+        cell.score.text = score[indexPath.row]
+        
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
 
-
+//        cell.layer.borderWidth = 1.0
+//        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 4)
+        cell.layer.shadowOpacity = 0.2
+        cell.layer.shadowRadius = 20
+        return cell
+    }
+    
 }
 
