@@ -21,7 +21,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let width = view.frame.size.width-40
         let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: 80)
-        
+        userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2 
         roundedRecButton.layer.cornerRadius = 10
         userCollection.layer.masksToBounds = false
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.userID.text = users[indexPath.row]
-        cell.userProfile.image = image[indexPath.row]   
+        cell.userProfile.image = image[indexPath.row]
         cell.score.text = score[indexPath.row]
         
         cell.layer.cornerRadius = 20
