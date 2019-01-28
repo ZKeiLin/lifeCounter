@@ -36,7 +36,7 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6K5-k2-Erd">
-                                <rect key="frame" x="20" y="148" width="374" height="305"/>
+                                <rect key="frame" x="20" y="148" width="374" height="556"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.95209640264511108" green="0.94937914609909058" blue="0.95561546087265015" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xhT-CE-LoQ">
@@ -104,6 +104,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="score" destination="Zg5-jH-kPG" id="fxz-dE-RbY"/>
+                                            <outlet property="user" destination="z0P-52-G9Y" id="GpF-wi-ebV"/>
                                             <outlet property="userID" destination="RJL-NF-wj6" id="IwZ-9h-3e7"/>
                                             <outlet property="userProfile" destination="Jvv-Q3-A7l" id="woY-6V-p3g"/>
                                         </connections>

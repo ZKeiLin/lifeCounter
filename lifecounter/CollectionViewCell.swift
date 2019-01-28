@@ -16,16 +16,31 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var userID: UILabel!
     
+    @IBOutlet weak var user: UILabel!
     @IBOutlet weak var score: UILabel!
     
+    
     override var isSelected: Bool{
-        didSet {
-            if self.isSelected {
-                userID.textColor = UIColor.orange
-                
+        willSet{
+            super.isSelected = newValue
+            if newValue
+            {
+                self.layer.borderWidth = 1.0
+//                self.layer.cornerRadius = self.bounds.height / 2
+                self.layer.borderColor = UIColor.orange.cgColor
+                self.userID.textColor = UIColor.orange
+                self.user.textColor = UIColor.orange
+            }
+            else
+            {
+                self.layer.borderWidth = 0.0
+                self.layer.cornerRadius = 0.0
+                self.userID.textColor = UIColor(red:0.29, green:0.56, blue:0.74, alpha:1.0)
+                self.user.textColor = UIColor(red:0.29, green:0.56, blue:0.74, alpha:1.0)
+                self.layer.cornerRadius = 20
             }
         }
-        //Write your code for cell selection here
+        
     }
     
 }

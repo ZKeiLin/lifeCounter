@@ -12,6 +12,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let users = ["1", "2", "3", "4"]
     let score = ["20","20","20","20"]
     
+    
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var roundedRecButton: UIButton!
     
@@ -32,6 +33,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         } else{
             layout.itemSize = CGSize(width: view.frame.width - 40, height: 80)
         }
+        
         userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
         userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height
         roundedRecButton.layer.cornerRadius = 25
@@ -72,6 +74,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.layer.shadowRadius = 10
         return cell
     }
+    
+    
     
 //
 //    @IBAcion func pressButton(_ sender: UIButton) {
