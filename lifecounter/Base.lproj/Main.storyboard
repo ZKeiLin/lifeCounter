@@ -113,9 +113,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vFh-tK-cas"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalCentering" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="GN6-fO-gSS">
-                                <rect key="frame" x="20" y="745" width="346" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="GN6-fO-gSS">
+                                <rect key="frame" x="34" y="745" width="346" height="61"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYY-cM-6oW">
                                         <rect key="frame" x="0.0" y="0.0" width="61" height="61"/>
@@ -167,9 +166,11 @@
                         <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2h2-JL-ejz" firstAttribute="top" secondItem="gkA-yo-mvv" secondAttribute="bottom" constant="21" id="A5X-rT-uFT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GN6-fO-gSS" secondAttribute="bottom" constant="56" id="C7C-yp-wdS"/>
                             <constraint firstItem="2h2-JL-ejz" firstAttribute="centerX" secondItem="gkA-yo-mvv" secondAttribute="centerX" id="DMn-FM-jhl"/>
                             <constraint firstItem="gkA-yo-mvv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="GMe-6T-CDu"/>
                             <constraint firstItem="gkA-yo-mvv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Pf0-PF-xC3"/>
+                            <constraint firstItem="GN6-fO-gSS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iFC-5x-SpM"/>
                             <constraint firstItem="2h2-JL-ejz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ofJ-qv-Q1p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
