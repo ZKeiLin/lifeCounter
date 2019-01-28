@@ -9,9 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    let users = ["1", "2"]
-    let score = ["20", "10"]
-    let image = [UIImage(named:"personicon"), UIImage(named: "personicon")   ]
+    let users = ["1", "2", "3", "4"]
+    let score = ["20","20","20","20"]
     
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var roundedRecButton: UIButton!
@@ -21,21 +20,36 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var plus5: UIButton!
     @IBOutlet weak var buttonSlackView: UIStackView!
     @IBOutlet weak var userCollection: UICollectionView!
+//    @IBOutlet weak var userPicker: UIPickerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let width = view.frame.size.width-40
+        // size of the collection view
         let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: width, height: 80)
+        if UIDevice.current.orientation.isLandscape{
+            layout.itemSize = CGSize(width: view.frame.width - 40, height: 50)
+
+        } else{
+            layout.itemSize = CGSize(width: view.frame.width - 40, height: 80)
+        }
         userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
-        userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height + 10
+        userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height
         roundedRecButton.layer.cornerRadius = 25
         userCollection.layer.masksToBounds = false
+        
+        //button below
         plusButton.layer.cornerRadius = 30
         plus5.layer.cornerRadius = 30
         minus.layer.cornerRadius = 30
         minus5.layer.cornerRadius = 30
         buttonSlackView.frame.origin.x = view.frame.width / 2 - buttonSlackView.frame.width/2
         
+        
+//        layout.shouldInvalidateLayoutForBoundsChange(true)
+    //        userPicker.delegate = self
+    //            userPicker.dataSource = self
+//        userPicker.delegate = self
+//        userPicker.dataSource = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -45,7 +59,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.userID.text = users[indexPath.row]
-        cell.userProfile.image = image[indexPath.row]
+        cell.userProfile.image = UIImage(named:"personIcon")
         cell.score.text = score[indexPath.row]
         
         cell.layer.cornerRadius = 20
@@ -58,6 +72,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.layer.shadowRadius = 10
         return cell
     }
+    
+//
+//    @IBAcion func pressButton(_ sender: UIButton) {
+//
+//
+//    }
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    // The number of rows of data
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return users.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return users[row]
+//    }
     
 }
 
