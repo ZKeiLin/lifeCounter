@@ -26,7 +26,6 @@ class CollectionViewCell: UICollectionViewCell {
             if newValue
             {
                 self.layer.borderWidth = 1.0
-//                self.layer.cornerRadius = self.bounds.height / 2
                 self.layer.borderColor = UIColor.orange.cgColor
                 self.userID.textColor = UIColor.orange
                 self.user.textColor = UIColor.orange
