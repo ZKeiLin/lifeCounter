@@ -119,7 +119,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBAction func pressButton(sender: UIButton){
         print(selectedItem)
-        if selectedItem > 0 {
+        if selectedItem >= 0 {
             switch sender {
             case plusButton:
                 score[selectedItem] += 1
