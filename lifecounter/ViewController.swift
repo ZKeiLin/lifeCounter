@@ -20,7 +20,7 @@ protocol DataModelDelegate: class {
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var users = [1,2,3,4]
     var score = [20, 20, 20, 20]
-    var selectedItem = -3
+    var selectedItem = -1
     
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var roundedRecButton: UIButton!
@@ -35,13 +35,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         // size of the collection view
         let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
-        if UIDevice.current.orientation.isLandscape{
-            layout.itemSize = CGSize(width: view.frame.width - 40, height: 50)
-        } else{
-        layout.itemSize = CGSize(width: roundedRecButton.frame.width    - 40, height: 60)
-        }
-        userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
-        userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height
+//        if UIDevice.current.orientation.isLandscape{
+//            layout.itemSize = CGSize(width: view.frame.width - 40, height: 50)
+//        } else{
+//        layout.itemSize = CGSize(width: roundedRecButton.frame.width    - 40, height: 60)
+//        }
+//        userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
+//        userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height
         userCollection.layer.masksToBounds = false
         
         roundedRecButton.layer.cornerRadius = 25
@@ -130,16 +130,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             case minus5:
                 score[selectedItem] -= 5
             default:
-                print("yayya")
+                return
             }
             if score[selectedItem] <= 0{
                 let alertController = UIAlertController(title: "Sorry", message:
                     "Player \(selectedItem + 1) LOSES", preferredStyle: UIAlertController.Style.alert)
                 alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default,handler: nil))
                 self.present(alertController, animated: true, completion: nil)
-                selectedItem = -3
                 score = [Int](repeating: 20, count: score.count)
             }
+            selectedItem = -1
             self.userCollection.reloadData()
         } else {
             let alertController = UIAlertController(title: "Alert", message:
