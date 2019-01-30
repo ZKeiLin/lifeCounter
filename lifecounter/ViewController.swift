@@ -34,12 +34,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         
         // size of the collection view
-//        let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
-//        if UIDevice.current.orientation.isLandscape{
-//            layout.itemSize = CGSize(width: view.frame.width - 40, height: 50)
-//        } else{
-//            layout.itemSize = CGSize(width: roundedRecButton.frame.width, height: 60)
-//        }
+        let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
+        if UIDevice.current.orientation.isLandscape{
+            layout.itemSize = CGSize(width: view.frame.width - 40, height: 50)
+        } else{
+        layout.itemSize = CGSize(width: roundedRecButton.frame.width    - 40, height: 60)
+        }
         userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
         userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height
         userCollection.layer.masksToBounds = false
@@ -150,21 +150,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
     //
-    override func viewWillLayoutSubviews() {
-        let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
-        if UIDevice.current.orientation.isLandscape{
-            layout.itemSize = CGSize(width: view.frame.width, height: 50)
-        } else{
-            layout.itemSize = CGSize(width: roundedRecButton.frame.width, height: 60)
-        }
-        
-        userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
-        userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height
-        userCollection.layer.masksToBounds = false
-//        userCollection.collectionViewLayout.invalidateLayout()
-        
-        layout.invalidateLayout()
-    }
+//    override func viewWillLayoutSubviews() {
+//        let layout = userCollection.collectionViewLayout as! UICollectionViewFlowLayout
+//        if UIDevice.current.orientation.isLandscape{
+//            layout.itemSize = CGSize(width: view.frame.width, height: 50)
+//        } else{
+//            layout.itemSize = CGSize(width: roundedRecButton.frame.width, height: 60)
+//        }
+//
+//        userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
+//        userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height
+//        userCollection.layer.masksToBounds = false
+////        userCollection.collectionViewLayout.invalidateLayout()
+//
+//        layout.invalidateLayout()
+//    }
     
 //    userCollection.frame.origin.x = view.frame.width / 2 - userCollection.frame.width/2
 //    userCollection.frame.origin.y = roundedRecButton.frame.origin.y + roundedRecButton.frame.size.height
