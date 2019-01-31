@@ -9,9 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    var users = [1,2,3,4]
-    var score = [20, 20, 20, 20]
+    var users = [1,2]
+    var score = [20, 20]
     var selectedItem = -1
+    var history : [Int] = [0,0,0,0,0,0,0,0]
     
     @IBOutlet weak var roundedRecButton: UIButton!
     @IBOutlet weak var minus: UIButton!
@@ -32,7 +33,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         // add new button style
         roundedRecButton.layer.cornerRadius = 25
-        roundedRecButton.layer.cornerRadius = 25
+        roundedRecButton.setTitleColor(UIColor(red:0.64, green:0.82, blue:0.94, alpha:1.0), for: .disabled)
+
         
         // collectionView data Delegate
         userCollection.delegate = self
@@ -56,11 +58,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     @IBAction func addNewUser(_ sender: Any) {
-        users = Array(1...users.count+1)
-        score = [Int](repeating: 20, count: users.count)
+        if users.count < 8 && score.allSatisfy({$0 == 20}) {
+                users = Array(1...users.count+1)
+                score = [Int](repeating: 20, count: users.count)
+        } else {
+            roundedRecButton.isEnabled = false
+        }
         self.userCollection.reloadData()
     }
     
+    @IBAction func historyButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "history", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let hisVC = segue.destination as! HistoryViewController
+        hisVC.historyList = self.history 
+        hisVC.users = self.users
+    }
+//
     @IBAction func pressButton(sender: UIButton){
         if selectedItem >= 0 {
             switch sender {
@@ -71,6 +87,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             default: return
             }
             if score[selectedItem] <= 0 {
+                history[selectedItem]  = history[selectedItem] + 1
                 let alertController = UIAlertController(title: "Sorry", message:
                     "Player \(selectedItem + 1) LOSES", preferredStyle: UIAlertController.Style.alert)
                 alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default,handler: nil))
@@ -78,7 +95,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 score = [Int](repeating: 20, count: score.count)
             }
             selectedItem = -1
+            print(history)
             self.userCollection.reloadData()
+            print("after")
+            print(history)
+
         } else {
             let alertController = UIAlertController(title: "Alert", message:
                 "Please select a user", preferredStyle: UIAlertController.Style.alert)
