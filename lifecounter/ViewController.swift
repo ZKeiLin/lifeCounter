@@ -82,7 +82,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             case 0: score[selectedItem] -= 1
             case 1:
                 if inputVal>=0 { score[selectedItem] -= inputVal }
-                score[selectedItem] -= 5
             case 2:
                 if inputVal>=0 { score[selectedItem] += inputVal }
             case 3: score[selectedItem] += 1
