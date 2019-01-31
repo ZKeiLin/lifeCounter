@@ -64,16 +64,16 @@
                                                         <constraint firstAttribute="width" secondItem="Jvv-Q3-A7l" secondAttribute="height" id="aNd-1n-gpy"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z18-P1-v5p">
-                                                    <rect key="frame" x="103" y="17" width="85" height="25"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z18-P1-v5p">
+                                                    <rect key="frame" x="103" y="16.5" width="85" height="25"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="USER #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0P-52-G9Y">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0P-52-G9Y">
                                                             <rect key="frame" x="8" y="3" width="57" height="19"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <color key="textColor" red="0.29411764705882354" green="0.56470588235294117" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJL-NF-wj6">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJL-NF-wj6">
                                                             <rect key="frame" x="68" y="3" width="15" height="19"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <color key="textColor" red="0.29411764709999999" green="0.56470588239999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,6 +84,7 @@
                                                     <constraints>
                                                         <constraint firstItem="z0P-52-G9Y" firstAttribute="leading" secondItem="z18-P1-v5p" secondAttribute="leading" constant="8" id="22k-pp-SNH"/>
                                                         <constraint firstItem="RJL-NF-wj6" firstAttribute="leading" secondItem="z0P-52-G9Y" secondAttribute="trailing" constant="3" id="OxY-Rv-Duc"/>
+                                                        <constraint firstAttribute="width" secondItem="z18-P1-v5p" secondAttribute="height" multiplier="17:5" id="SAR-58-Ejz"/>
                                                         <constraint firstItem="z0P-52-G9Y" firstAttribute="centerY" secondItem="z18-P1-v5p" secondAttribute="centerY" id="e8e-d5-wqb"/>
                                                         <constraint firstItem="RJL-NF-wj6" firstAttribute="centerY" secondItem="z18-P1-v5p" secondAttribute="centerY" id="fTZ-Yj-Sk3"/>
                                                         <constraint firstAttribute="trailing" secondItem="RJL-NF-wj6" secondAttribute="trailing" constant="9" id="yFo-l8-NRS"/>
@@ -134,17 +135,23 @@
                                         <state key="normal" title="-">
                                             <color key="titleColor" red="0.29411764709999999" green="0.56470588239999997" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uGQ-ZO-cgC"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="iHt-tC-RhK">
                                         <rect key="frame" x="67" y="0.0" width="154" height="53"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I0-CF-j9g" customClass="operation_button" customModule="lifecounter" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I0-CF-j9g" customClass="operation_button" customModule="lifecounter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="53"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                 <state key="normal" title="-">
                                                     <color key="titleColor" red="0.29411764709999999" green="0.56470588239999997" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HmK-kq-vFy"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KeZ-7q-klF">
                                                 <rect key="frame" x="31" y="0.0" width="92" height="53"/>
@@ -155,17 +162,19 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
-                                                    <action selector="afterInput:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="U5R-7l-Gzq"/>
                                                     <action selector="editChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="cbH-M7-LPY"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-0Y-uW8" customClass="operation_button" customModule="lifecounter" customModuleProvider="target">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-0Y-uW8" customClass="operation_button" customModule="lifecounter" customModuleProvider="target">
                                                 <rect key="frame" x="124" y="0.0" width="30" height="53"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" red="1" green="0.52156862749999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ka8-kl-IKW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -174,7 +183,7 @@
                                             <constraint firstItem="7I0-CF-j9g" firstAttribute="height" secondItem="KeZ-7q-klF" secondAttribute="height" id="Ww8-6j-I6V"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bY-mC-4wX" customClass="operation_button" customModule="lifecounter" customModuleProvider="target">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bY-mC-4wX" customClass="operation_button" customModule="lifecounter" customModuleProvider="target">
                                         <rect key="frame" x="235" y="0.0" width="53" height="53"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -184,6 +193,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" red="1" green="0.52156862749999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Q1-mv-gz3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -221,12 +233,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="buttonSlackView" destination="GN6-fO-gSS" id="ZkH-Rr-Awg"/>
                         <outlet property="inputBox" destination="KeZ-7q-klF" id="ojB-qz-hTB"/>
-                        <outlet property="minus" destination="cYY-cM-6oW" id="VYV-TI-L5D"/>
-                        <outlet property="minus5" destination="7I0-CF-j9g" id="bpX-EV-scS"/>
-                        <outlet property="plus5" destination="GDo-0Y-uW8" id="H1V-kw-DG6"/>
-                        <outlet property="plusButton" destination="8bY-mC-4wX" id="7dA-lk-nj7"/>
                         <outlet property="roundedRecButton" destination="2h2-JL-ejz" id="djm-4x-Wwd"/>
                         <outlet property="userCollection" destination="6K5-k2-Erd" id="6Um-Um-0qJ"/>
                     </connections>
@@ -261,11 +268,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="291" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBr-1c-Sp9">
-                                                    <rect key="frame" x="19.5" y="17" width="117.5" height="23"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBr-1c-Sp9">
+                                                    <rect key="frame" x="19.5" y="17.5" width="117.5" height="23"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuK-L1-GUV">
-                                                            <rect key="frame" x="4.5" y="1" width="108.5" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuK-L1-GUV">
+                                                            <rect key="frame" x="4.5" y="1.5" width="108.5" height="20.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKF-my-6a0">
                                                                     <rect key="frame" x="0.0" y="0.0" width="61.5" height="20.5"/>
@@ -301,6 +308,7 @@
                                                         <constraint firstItem="FuK-L1-GUV" firstAttribute="leading" secondItem="TBr-1c-Sp9" secondAttribute="leading" constant="4.5" id="NZb-Te-KpW"/>
                                                         <constraint firstItem="FuK-L1-GUV" firstAttribute="centerY" secondItem="TBr-1c-Sp9" secondAttribute="centerY" id="a4P-Y0-mOC"/>
                                                         <constraint firstItem="FuK-L1-GUV" firstAttribute="centerX" secondItem="TBr-1c-Sp9" secondAttribute="centerX" id="kjw-KC-qCb"/>
+                                                        <constraint firstAttribute="width" secondItem="TBr-1c-Sp9" secondAttribute="height" multiplier="117:23" id="lJ9-a2-O9x"/>
                                                         <constraint firstItem="FuK-L1-GUV" firstAttribute="centerY" secondItem="TBr-1c-Sp9" secondAttribute="centerY" id="xDn-Df-wN9"/>
                                                     </constraints>
                                                 </view>
@@ -312,9 +320,6 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVf-kY-gzt">
                                                     <rect key="frame" x="161" y="8" width="46.5" height="43"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="46.5" id="jef-Bp-Myf"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                     <color key="textColor" red="1" green="0.52156862749999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -334,9 +339,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="lifeCount" destination="cVf-kY-gzt" id="aRh-bR-t03"/>
-                                            <outlet property="lives" destination="B2x-n5-59e" id="4uB-rU-sUd"/>
                                             <outlet property="userID" destination="fSp-fs-dJY" id="HZg-R0-Y8c"/>
-                                            <outlet property="userTitle" destination="XKF-my-6a0" id="4Sn-vA-W5r"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -368,7 +371,7 @@
                             <constraint firstItem="Vhx-LX-3uq" firstAttribute="width" secondItem="8E2-Yw-r5d" secondAttribute="height" multiplier="3:5" id="ACc-c3-aW3"/>
                             <constraint firstItem="YBP-Gl-EF0" firstAttribute="bottom" secondItem="Vhx-LX-3uq" secondAttribute="bottom" constant="20" id="J00-RP-12G"/>
                             <constraint firstItem="1uC-rU-FMB" firstAttribute="centerX" secondItem="YBP-Gl-EF0" secondAttribute="centerX" id="SSr-jv-C8h"/>
-                            <constraint firstItem="1uC-rU-FMB" firstAttribute="top" secondItem="YBP-Gl-EF0" secondAttribute="top" constant="15" id="Y0E-xu-vTk"/>
+                            <constraint firstItem="1uC-rU-FMB" firstAttribute="top" secondItem="YBP-Gl-EF0" secondAttribute="top" constant="15" id="Y0E-xu-vTk" userLabel="LIFE COUNTER HISTORY.top = Safe Area.top + 16"/>
                             <constraint firstItem="Vhx-LX-3uq" firstAttribute="centerX" secondItem="YBP-Gl-EF0" secondAttribute="centerX" id="yDb-gH-vMI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YBP-Gl-EF0"/>

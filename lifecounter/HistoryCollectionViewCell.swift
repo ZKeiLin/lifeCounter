@@ -9,16 +9,12 @@
 import UIKit
 
 class HistoryCollectionViewCell: UICollectionViewCell {
-   
-    
+       
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
-    
-    @IBOutlet weak var lives: UILabel!
-    @IBOutlet weak var userTitle: UILabel!
     @IBOutlet weak var lifeCount: UILabel!
     @IBOutlet weak var userID: UILabel!
     
@@ -30,8 +26,6 @@ class HistoryCollectionViewCell: UICollectionViewCell {
     private func setup() {
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.black.cgColor
-        
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 2, height: 4)
         self.layer.shadowOpacity = 0.2

@@ -11,9 +11,7 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var userProfile: UIImageView!
-    
     @IBOutlet weak var userID: UILabel!
-    
     @IBOutlet weak var user: UILabel!
     @IBOutlet weak var score: UILabel!
     
