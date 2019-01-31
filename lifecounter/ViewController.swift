@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate{
+    
     var users = [1,2]
     var score = [20, 20]
     var selectedItem = -1
     var history : [Int] = [0,0,0,0,0,0,0,0]
+    var inputVal : Int = -1
     
     @IBOutlet weak var roundedRecButton: UIButton!
     @IBOutlet weak var minus: UIButton!
@@ -21,6 +23,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var buttonSlackView: UIStackView!
     @IBOutlet weak var userCollection: UICollectionView!
+    @IBOutlet weak var inputBox: UITextField!
+    
+//    var buttonCollection : [UIButton] = [self.minus, self.minus5, self.plus5, self.plusButton]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +40,23 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // add new button style
         roundedRecButton.layer.cornerRadius = 25
         roundedRecButton.setTitleColor(UIColor(red:0.64, green:0.82, blue:0.94, alpha:1.0), for: .disabled)
-
+        
+        inputBox.delegate = self
         
         // collectionView data Delegate
         userCollection.delegate = self
         userCollection.dataSource = self
     }
+    
+    @IBAction func editChange(_ sender: Any) {
+        inputVal = Int((inputBox.text!)) ?? -1
+
+    }
+    
+    @IBAction func afterInput(_ sender: Any) {
+        inputVal = Int((inputBox.text!)) ?? -1
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return users.count
@@ -76,14 +93,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         hisVC.historyList = self.history 
         hisVC.users = self.users
     }
-//
+
     @IBAction func pressButton(sender: UIButton){
         if selectedItem >= 0 {
             switch sender {
             case plusButton: score[selectedItem] += 1
             case minus: score[selectedItem] -= 1
-            case plus5: score[selectedItem] += 5
-            case minus5: score[selectedItem] -= 5
+            case plus5:
+                print(inputVal)
+                if inputVal>=0 {
+                    score[selectedItem] += inputVal
+                }
+            case minus5:
+                if inputVal>=0 {
+                    score[selectedItem] -= inputVal
+                }
+                score[selectedItem] -= 5
             default: return
             }
             if score[selectedItem] <= 0 {
@@ -94,11 +119,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 self.present(alertController, animated: true, completion: nil)
                 score = [Int](repeating: 20, count: score.count)
             }
+            inputVal = -1
+            self.inputBox.text = ""
             selectedItem = -1
-            print(history)
             self.userCollection.reloadData()
-            print("after")
-            print(history)
 
         } else {
             let alertController = UIAlertController(title: "Alert", message:

@@ -20,7 +20,7 @@ class operation_button: UIButton {
     }
 
     private func setup() {
-        self.layer.cornerRadius = 30
+        self.layer.cornerRadius = 10
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 2, height: 4)
         self.layer.shadowOpacity = 0.2
