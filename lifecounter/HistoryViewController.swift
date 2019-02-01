@@ -20,20 +20,24 @@ class HistoryViewController: UIViewController,UICollectionViewDataSource, UIColl
         
         historyCollection.delegate = self
         historyCollection.dataSource = self
+        
+        let sortedHistory = historyList.enumerated().sorted(by: {$0.element > $1.element})
+        historyList = sortedHistory.map{$0.element}
+        users = sortedHistory.map{$0.offset}
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return users.count
+        return historyList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "historyCell", for: indexPath) as! HistoryCollectionViewCell
-        cell.userID.text = String(users[indexPath.row])
+        cell.userID.text = String(users[indexPath.row]+1)
         cell.lifeCount.text = String(historyList[indexPath.row])
         return cell
     }
     
     @IBAction func backButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }

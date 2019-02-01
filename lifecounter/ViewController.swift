@@ -12,7 +12,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var users = [1,2]
     var score = [20, 20]
     var selectedItem = -1
-    var history : [Int] = [0,0,0,0,0,0,0,0]
+    var history : [Int] = [0,0]
     var inputVal : Int = -1
     
     @IBOutlet weak var roundedRecButton: UIButton!
@@ -58,6 +58,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if users.count < 8 && score.allSatisfy({$0 == 20}) {
                 users = Array(1...users.count+1)
                 score = [Int](repeating: 20, count: users.count)
+                history.append(0)
         } else {
             roundedRecButton.isEnabled = false
         }
@@ -67,39 +68,45 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBAction func historyButton(_ sender: UIButton) {
         performSegue(withIdentifier: "history", sender: self)
+        history = [0,0]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let hisVC = segue.destination as! HistoryViewController
         hisVC.historyList = self.history 
-        hisVC.users = self.users
     }
 
     // button control for the operation buttons
     @IBAction func pressButton(_ sender: UIButton){
         if selectedItem >= 0 {
             switch sender.tag {
-            case 0: score[selectedItem] -= 1
+            case 0:
+                score[selectedItem] -= 1
+                history[selectedItem] += 1
             case 1:
-                if inputVal>=0 { score[selectedItem] -= inputVal }
+                if inputVal>=0 {
+                    score[selectedItem] -= inputVal
+                    history[selectedItem] += inputVal
+                }
             case 2:
-                if inputVal>=0 { score[selectedItem] += inputVal }
-            case 3: score[selectedItem] += 1
+                if inputVal>=0 {
+                        score[selectedItem] += inputVal
+                   history[selectedItem] -= inputVal
+                }
+            case 3:
+                score[selectedItem] += 1
+                history[selectedItem] -= 1
             default: return
             }
-            
+            print(history)
             if score[selectedItem] <= 0 {
-                history[selectedItem]  = history[selectedItem] + 1
-                
                 // send alert
                 let alertController = UIAlertController(title: "Sorry", message:
                     "Player \(selectedItem + 1) LOSES", preferredStyle: UIAlertController.Style.alert)
                 alertController.addAction(UIAlertAction(title: "Reset", style: UIAlertAction.Style.default,handler: nil))
                 self.present(alertController, animated: true, completion: nil)
-                
                 score = [Int](repeating: 20, count: score.count)
             }
-            
             inputVal = -1
             self.inputBox.text = ""
             selectedItem = -1
